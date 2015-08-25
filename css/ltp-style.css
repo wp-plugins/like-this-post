@@ -30,7 +30,7 @@
     display: inline-block;
     height: 17px;
     position: absolute;
-    top: 7px;
+    top: 3px;
     width: 20px;
 	outline: 0 none;
 }
@@ -83,7 +83,7 @@
     border-bottom: 5px solid black;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    bottom: -1px;
+    top: 20px;
     display: none;
     height: 0;
     left: 0;
@@ -206,4 +206,9 @@
 		margin: 0;
 	}
 
+}
+
+.white_content > h2 {
+    padding: 10px 0 0;
+    text-align: center;
 }

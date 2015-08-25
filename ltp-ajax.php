@@ -18,6 +18,9 @@ function ltpAjaxCallback() {
 	$post_id = (int)$_REQUEST['post_id'];
 	$task = $_REQUEST['task'];
 	$hashealreadyvoted = hasheAlreadyVoted($post_id);
+	$loginplease = get_option('ltp_login_message');
+	$thanksforlike = get_option('ltp_thanks_message');
+	$alreadylikes = get_option('ltp_already_liked_message');
 	
 	if ( !wp_verify_nonce( $_REQUEST['nonce'], 'ltp_vote_nonce' ) ) {
 		$error = 1;
@@ -34,7 +37,7 @@ function ltpAjaxCallback() {
 				}
 				else {
 					$error =1;
-					$msg = 'You already Liked';
+					$msg = $alreadylikes;
 				}
 			}
 			
@@ -42,7 +45,7 @@ function ltpAjaxCallback() {
 				$success = $wpdb->query($query);
 				if ($success) {
 					$error = 0;
-					$msg = 'Thanks for Voting';
+					$msg = $thanksforlike;
 				}
 				else {
 					$error = 1;
@@ -51,7 +54,7 @@ function ltpAjaxCallback() {
 			}
 		} else {
 			$error = 0;
-			$msg = 'Please Login to Vote.';
+			$msg = $loginplease;
 		}
 	}
 	

@@ -52,6 +52,7 @@ likeThisPost = {
 			} else {
 				var lightHeight = $ltp('.like-box').height();
 				$ltp('.alllistusers').css({'top':lightHeight});
+				$ltp('.arrow-up').css({'top':lightHeight-5});
 			}
 		});
 	}

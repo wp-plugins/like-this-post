@@ -2,7 +2,9 @@
 function ltpCurrrentLike() {
 	global $wpdb;
 	$post_id = get_the_ID();
-
+	$show_ajax_notify = get_option('ltp_show_ajax_notify');
+	$show_only_count = get_option('ltp_show_only_count');
+	
 	$nonce = wp_create_nonce("ltp_vote_nonce");
 	$ltp_alllikes= ltp_likecount($post_id);
 	$ltp_like_users = GetAllUserslikethePost($post_id);
@@ -11,8 +13,8 @@ function ltpCurrrentLike() {
 
 	$showLikeBox = '<div class="ltp-box">';
 	$showLikeBox .= '<div class="like-box"><a class="likebutton" href="' . $ajax_like_link . '" data-task="like" data-post_id="' . $post_id . '" data-nonce="' . $nonce . '"><span class="icon-like"></span><span class="no-like no-like-' . $post_id . ' like-content">' . $ltp_alllikes . '</span></a>';
-	$showLikeBox .= "<div class='likeusers likeusers-" . $post_id . "'>" . $ltp_user_like_data . "</div>";
-	$showLikeBox .= '<div class="no-msg no-msg-' . $post_id . '"></div>';
+	if($show_only_count == 0) {$showLikeBox .= "<div class='likeusers likeusers-" . $post_id . "'>" . $ltp_user_like_data . "</div>"; }
+	if($show_ajax_notify == 1) {$showLikeBox .= '<div class="no-msg no-msg-' . $post_id . '"></div>'; }
 	$showLikeBox .= '</div></div>';
 	return $showLikeBox;
 }
