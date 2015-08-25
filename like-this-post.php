@@ -2,7 +2,7 @@
 /*
 Plugin Name: Like This Post
 Description: This Plugin is used to like the interested post on the website. It also includes features which facebook have for like on its website. Counts, user names can be viewed. Popup features is also present to view the users.
-Version: 1.0
+Version: 1.1
 Author: Thiyagesh M
 
 Copyright 2015  Thiyagesh M (email : thyash11@gmail.com)
